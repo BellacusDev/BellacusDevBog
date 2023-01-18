@@ -1,0 +1,61 @@
+<!-- head para PC -->
+{% extends "plantillas/base_plantilla.html" %}
+{% load  static %}
+
+{% block content %}
+
+{% include "includes/header.html" %}
+
+<div class="grid-container">
+    <div class="grid-x grid-margin-x align-center">
+        <div class="cell medium-10 large-6" style="margin-top: 2em;">
+            <div class="card" style="width: 100%;">
+                <div class="card-divider">
+                  <h4>Ingrese sus datos</h4>
+                </div>
+                <div class="card-section">
+                    <form class="grid-x grid-margin-x">
+                        <div class="cell large-12">
+                            <label>Email:
+                            <input type="text" placeholder="Correo electronico">
+                            </label>
+                        </div>
+                        <div class="cell large-6">
+                            <label>Nombres:
+                            <input type="text" placeholder="Nombres y apellidos">
+                            </label>
+                        </div>
+                        <div class="cell medium-6">
+                            <label>Ocupacion:
+                            <input type="text" placeholder="Nombres y apellidos">
+                            </label>
+                        </div>
+                        <div class="cell medium-6">
+                            <label>Genero:
+                            <input type="text" placeholder="Nombres y apellidos">
+                            </label>
+                        </div>
+                        <div class="cell medium-6">
+                            <label>Fecha Nacimiento:
+                            <input type="text" placeholder="Nombres y apellidos">
+                            </label>
+                        </div>
+                        <div class="cell medium-12">
+                            <label>Contraseña:
+                            <input type="password" placeholder="Paswword ...">
+                            </label>
+                        </div>
+                        <div class="cell medium-12">
+                            <label>Repetir Contraseña:
+                            <input type="password" placeholder="Paswword ...">
+                            </label>
+                        </div>
+                        <button type="submit" class="cell hollow button primary">Registrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

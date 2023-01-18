@@ -1,0 +1,37 @@
+<!-- head para PC -->
+{% extends "plantillas/base_plantilla.html" %}
+{% load  static %}
+
+{% block content %}
+
+{% include "includes/header.html" %}
+
+<div class="grid-container">
+    <div class="grid-x grid-margin-x align-center">
+        <form class="cell medium-6 large-4" style="margin-top: 2em;">
+            <div class="card" style="width: 100%;">
+                <div class="card-divider">
+                  <h4>Acceso de usuario</h4>
+                </div>
+                <div class="card-section">
+                    <form class="grid-x grid-margin-x">
+                        <div class="cell medium-12">
+                            <label>Email:
+                            <input type="email" placeholder="Correo electronico">
+                            </label>
+                        </div>
+                        <div class="cell medium-12">
+                            <label>Contraseña:
+                            <input type="password" placeholder="Paswword ...">
+                            </label>
+                        </div>
+                        <button type="submit" class="cell hollow button primary">Acceder</button>
+                        <a class="cell hollow button alert" href="#">Registrar</a>
+                    </form>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

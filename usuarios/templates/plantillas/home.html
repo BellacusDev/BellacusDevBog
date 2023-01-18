@@ -1,0 +1,128 @@
+<!-- head para PC -->
+{% extends "plantillas/base_plantilla.html" %}
+{% load  static %}
+
+{% block content %}
+
+{% include "includes/header.html" %}
+
+<div class="grid-container">
+    <!-- primer bloque del home -->
+    <div class="grid-x grid-margin-x" style="margin-top: 1em;">
+        <!-- bloque de blog principal -->
+        <div class="cell small-12 large-6">
+            <div class="card" style="width: 100%;">
+                <img src="https://neunapp.com/media/blog/1.png">
+                <div class="card-section">
+                  <h4>This is a card.</h4>
+                  <p>It has an easy to override visual style, and is appropriately subdued.</p>
+                </div>
+            </div>
+        </div>
+        <!-- FIN bloque de blog principal -->
+
+        <!-- bloque de blog principal -->
+        <div class="cell small-12 large-6 grid-x grid-margin-x">
+            <div class="cell small-12 large-6">
+                <div class="card" style="width: 100%;">
+                    <img src="https://neunapp.com/media/blog/header16.jpg">
+                    <div class="card-section">
+                      <h5>This is a card.</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="cell small-12 large-6">
+                <div class="card" style="width: 100%;">
+                    <img src="https://neunapp.com/media/blog/header16.jpg">
+                    <div class="card-section">
+                      <h5>This is a card.</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="cell small-12 large-6">
+                <div class="card" style="width: 100%;">
+                    <img src="https://neunapp.com/media/blog/header16.jpg">
+                    <div class="card-section">
+                      <h5>This is a card.</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="cell small-12 large-6">
+                <div class="card" style="width: 100%;">
+                    <img src="https://neunapp.com/media/blog/header16.jpg">
+                    <div class="card-section">
+                      <h5>This is a card.</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- FIN bloque de blog principal -->
+    </div>
+    <!-- FIN del primer bloque home -->
+
+    <!-- segundo bloque pantalla home -->
+    <div class="grid-x align-center" style="margin-top: 1em;">
+        <div class="cell small-12 large-10 callout secondary">
+            <h5>Conoce mas de nostros:</h5>
+            <p>
+                Creamos contenido educativo relacionado a la programación web, frontend backedn, servidores y demás, para enterarte sobre nuevas publicaciones suscribete a nuestro blog.
+            </p>
+
+            <p>
+                <button class="button" data-open="exampleModal2">Suscribirme</button>
+            </p>
+
+            <!-- This is the first modal -->
+            <div class="reveal" id="exampleModal2" data-reveal style="width: 300px;">
+                <p class="lead">Ingresa tu correo</p>
+                <form class="grid-x grid-margin-x">
+                    <div class="cell small-12">
+                        <input type="text" placeholder="E-mail..">
+                    </div>
+                    <div class="cell small-12">
+                        <button type="button" class="success button">Suscribirme</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <!-- FIN segundo bloque pantalla home -->
+
+
+    <!-- tercer bloque home -->
+    <div class="grid-x grid-margin-x align-center">
+        <h3 class="cell">Articulos Recientes:</h3>
+        <div class="cell small-6 large-4">
+            <div class="card" style="width: 100%;">
+                <img src="https://neunapp.com/media/blog/1.png">
+                <div class="card-section">
+                  <h4>This is a card.</h4>
+                  <p>It has an easy to override visual style, and is appropriately subdued.</p>
+                </div>
+            </div>
+        </div>
+        <div class="cell small-6 large-4">
+            <div class="card" style="width: 100%;">
+                <img src="https://neunapp.com/media/blog/1.png">
+                <div class="card-section">
+                  <h4>This is a card.</h4>
+                  <p>It has an easy to override visual style, and is appropriately subdued.</p>
+                </div>
+            </div>
+        </div>
+        <div class="cell small-6 large-4">
+            <div class="card" style="width: 100%;">
+                <img src="https://neunapp.com/media/blog/1.png">
+                <div class="card-section">
+                  <h4>This is a card.</h4>
+                  <p>It has an easy to override visual style, and is appropriately subdued.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN tercer bloque -->
+</div>
+{% include "includes/footer.html" %}
+
+{% endblock content %}
