@@ -14,7 +14,7 @@ from applications.entrada.models import Entry
 # models
 from .models import Home
 # froms
-from .forms import SuscribersForms
+from .forms import SuscribersForms, ContactFrom
 
 class HomePageView(TemplateView):
     template_name = 'home/index.html'
@@ -42,4 +42,10 @@ class HomePageView(TemplateView):
 
 class SuscriberCreateView(CreateView):
     form_class = SuscribersForms
+    success_url = '.'
+
+
+class ContactCreateView(CreateView):
+    template_name = 'includes/footer.html'
+    form_class = ContactFrom
     success_url = '.'
