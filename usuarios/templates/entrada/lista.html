@@ -1,0 +1,90 @@
+<!-- head para PC -->
+{% extends "entrada/base_entrada.html" %}
+
+{% load  static %}
+
+{% block content %}
+
+{% include "includes/header.html" %}
+
+<div class="grid-container">
+    <div class="grid-x grid-margin-x" style="margin-top: 1em;">
+        <!-- primer bloque pantalla blog -->
+        <div class="cell small-12 large-8">
+
+            <!-- bloque de buscador -->
+            <form class="input-group" method="get">{% csrf_token %}
+                <input class="input-group-field" type="text" id="kword" name="kword" placeholder="Buscar ...">
+                <div class="input-group-button">
+                  <input type="submit" class="button" value="Buscar">
+                </div>
+            </form>
+            <!-- FIN bloque de formulario -->
+
+            <!-- inicio bloque de resultados de busqueda -->
+            <div class="grid-x grid-margin-x">
+              {% for entrada in entradas %}
+                <div class="cell small-6 large-4">
+                      <div class="card" style="width: 100%;">
+                          <img src="{{ entrada.image.url }}" style="width: 300px;">
+                          <div class="card-section">
+                            <h4>{{ entrada.title | truncatechars:40 }}</h4>
+                            <p>{{ entrada.resume | truncatechars:100 }}</p>
+                          </div>
+                      </div>
+                  </div>
+              {% empty %}
+              <h3 style="color:red;">No hay resultados...</h3>
+              {% endfor %}
+            </div>
+            <!-- FIN bloque de resultados de busqueda -->
+
+        </div>
+        <!-- FIN primer bloque pantalla blog -->
+
+
+        <!-- inicio del segundo bloque - categorias -->
+        <div class="cell small-12 large-4" style="height: 500px;">
+            <h4>Categorias</h4>
+            <ul class="vertical menu">
+              {% for categoria in categorias %}
+                <li><a href="?categoria={{ categoria.short_name }}">{{ categoria.name }}</a></li>
+              {% endfor %}
+            </ul>
+        </div>
+        <!-- FIN inicio del segundo bloque - categorias -->
+
+    </div>
+
+    <!-- inicio de bloque de paginacion -->
+    <div class="cell">
+      {% if is_paginated %}
+        <nav aria-label="Pagination">
+          <ul class="pagination">
+            {% if page_obj.has_previous %}
+            <li class="pagination.previous">
+              <a href="?page={{ page_obj.previous_page_number }}">Atras</a>
+            </li>
+        {% endif %}
+
+        {% for pagina in paginator.page_range %}
+            {% if pagina == page_obj.number %}
+              <li class="current"><span class="show-for-sr">Estás en esta pagina</span>{{ pagina }}</li>
+            {% else %}
+              <li class=""><a href="?page={{ pagina }}"></a></li>
+            {% endif %}
+        {% endfor %}
+            {% if page_obj.has_next %}
+            <li class="pagination-next">
+              <a href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+            </li>
+        {% endif %}
+          </ul>
+        </nav>
+      {% endif %}
+    </div>
+    <!-- FIN bloque de paginacion -->
+</div>
+{% include "includes/footer.html" %}
+
+{% endblock content %}
