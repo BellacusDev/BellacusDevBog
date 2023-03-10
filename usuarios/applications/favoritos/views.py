@@ -6,6 +6,7 @@ from django.http import HttpResponseRedirect
 from django.views.generic import (
     ListView,
     View,
+    DeleteView,
 )
 from applications.entrada.models import Entry
 from .models import Favorites
@@ -21,8 +22,9 @@ class UserPageView(LoginRequiredMixin, ListView):
         return Favorites.objects.entradas_user(self.request.user)
 
 
-class AddFavoritesView(View):
+class AddFavoritesView(LoginRequiredMixin, View):
 
+    login_url = reverse_lazy('users_app:user-login')
     def post(self, request, *args, **kwargs):
 
         # recuperar usuario
@@ -40,3 +42,7 @@ class AddFavoritesView(View):
                 'favoritos_app:perfil',
             )
         )
+
+class FavoritesDeleteView(DeleteView):
+    model = Favorites
+    success_url = reverse_lazy('favoritos_app:perfil')

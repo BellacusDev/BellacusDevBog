@@ -14,4 +14,9 @@ urlpatterns = [
         views.AddFavoritesView.as_view(),
         name='add-favoritos',
     ),
+    path(
+        'delete-favotites/<pk>/',
+        views.FavoritesDeleteView.as_view(),
+        name='delete-favoritos',
+    ),
 ]
