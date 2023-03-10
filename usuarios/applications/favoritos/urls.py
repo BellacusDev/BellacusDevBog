@@ -9,4 +9,9 @@ urlpatterns = [
         views.UserPageView.as_view(),
         name='perfil',
     ),
+    path(
+        'add-entrada/<pk>/',
+        views.AddFavoritesView.as_view(),
+        name='add-favoritos',
+    ),
 ]
