@@ -1,6 +1,10 @@
+# python
+from datetime import timedelta, datetime
+
+
 from django.db import models
 from django.conf import settings
-
+from django.template.defaultfilters import slugify
 # Managers
 from .managers import EntryManager
 
@@ -83,4 +87,19 @@ class Entry(TimeStampedModel):
 
     def __str__(self):
         return self.title
+
+    def save(self, *args, **kwargs):
+        # calculamos el total de segundos de la hora actual
+        now = datetime.now()
+        total_time = timedelta(
+            hours=now.hour,
+            minutes=now.minute,
+            seconds=now.second
+        )
+        seconds = int(total_time.total_seconds())
+        slig_unique = '%s %s' % (self.title, str(seconds))
+
+        self.slug = slugify(slig_unique)
+
+        super(Entry, self).save(*args, **kwargs)
 
