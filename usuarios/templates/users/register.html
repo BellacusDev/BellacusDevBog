@@ -19,36 +19,57 @@
                             <label>Email:
                                 {{ form.email }}
                             </label>
+                            {% for e in form.email.errors %}
+                                <p style="color:red;">{{ e }}</p>
+                            {% endfor %}
                         </div>
                         <div class="cell large-6">
                             <label>Nombres:
                             {{ form.full_name }}
                             </label>
+                            {% for e in form.full_name.errors %}
+                                <p style="color:red;">{{ e }}</p>
+                            {% endfor %}
                         </div>
                         <div class="cell medium-6">
                             <label>Ocupacion:
                             {{ form.ocupation }}
                             </label>
+                            {% for e in form.ocupation.errors %}
+                                <p style="color:red;">{{ e }}</p>
+                            {% endfor %}
                         </div>
                         <div class="cell medium-6">
                             <label>Genero:
                             {{ form.genero }}
                             </label>
+                            {% for e in form.genero.errors %}
+                                <p style="color:red;">{{ e }}</p>
+                            {% endfor %}
                         </div>
                         <div class="cell medium-6">
                             <label>Fecha Nacimiento:
                             {{ form.date_birth }}
                             </label>
+                            {% for e in form.date_birth.errors %}
+                                <p style="color:red;">{{ e }}</p>
+                            {% endfor %}
                         </div>
                         <div class="cell medium-12">
                             <label>Contraseña:
                             {{ form.password1 }}
                             </label>
+                            {% for e in form.password1.errors %}
+                                <p style="color:red;">{{ e }}</p>
+                            {% endfor %}
                         </div>
                         <div class="cell medium-12">
                             <label>Repetir Contraseña:
                             {{ form.password2 }}
                             </label>
+                            {% for e in form.password2.errors %}
+                                <p style="color:red;">{{ e }}</p>
+                            {% endfor %}
                         </div>
                         <button type="submit" class="cell hollow button primary">Registrar</button>
                     </form>
